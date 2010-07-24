@@ -1,0 +1,9 @@
+#!/bin/sh
+
+[ "$3" ] || {
+    echo "usage: sv gateway_server vnc_host quality"
+    exit
+}
+
+(telnet $1 20301 >/dev/null 2>&1) &
+vncviewer -compresslevel 9 -quality $3 -via root@$1 $2

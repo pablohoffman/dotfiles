@@ -1,0 +1,12 @@
+#!/bin/sh
+
+export IFS="	"
+
+clear
+
+at -l | grep -v ^Date | while read job time; do
+    echo $time
+    echo -n "   "
+    eval $(at -c $job | tail -2 | sed 's/|.*//')
+done
+

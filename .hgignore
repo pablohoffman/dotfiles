@@ -1,0 +1,19 @@
+syntax: glob
+*.orig
+*.pyc
+*.pyo
+*.o
+*.lo
+*.la
+#*#
+.*~
+*~
+.#* 
+.DS_Store 
+*.swp 
+dropin.cache 
+_trial_temp
+build
+
+syntax:regexp
+^autoscraping/data

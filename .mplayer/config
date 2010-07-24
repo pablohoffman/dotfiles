@@ -1,0 +1,14 @@
+[default]
+# pablo mplayer configuration file
+
+brightness = 0
+contrast = 0
+hue = 0
+saturation = 0
+
+subfont-autoscale=3
+subfont-text-scale=3
+
+monitoraspect=16:9
+
+xineramascreen=0

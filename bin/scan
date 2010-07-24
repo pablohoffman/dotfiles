@@ -1,0 +1,14 @@
+#!/bin/sh
+# Quick script for scanning my stuff - prh - 8 ene 2008
+
+set -e
+
+dir=~/Documents/scans
+fn=$dir/$(date +%Y-%m-%d_%H-%M-%S)
+
+echo "Filename   : $fn.jpg"
+echo -n "Description: "
+read description
+
+scanimage --resolution 200 --progress | convert - $fn.jpg
+echo "$description" >$fn.txt

@@ -1,0 +1,8 @@
+#!/bin/sh
+#gnome-settings-daemon &
+#nm-applet &
+#gnome-power-manager &
+#gnome-volume-manager &
+#gnome-screensaver
+#system-config-printer-applet &
+#xrandr --output LVDS1 --auto --output VGA1 --auto --primary --right-of LVDS1 &

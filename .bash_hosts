@@ -1,0 +1,11 @@
+# vim:ft=sh:
+host="$(hostname -s)"
+
+case "$host" in
+    *indexer1*)
+        export log=/var/search/logs/indexer.log
+        ;;
+    *search*)
+        export log=/var/search/logs/server.log
+        ;;
+esac

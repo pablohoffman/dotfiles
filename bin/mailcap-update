@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+
+import os
+
+mymailcap = open(os.path.expanduser('~/.mailcap'), 'wb')
+for line in open('/etc/mailcap'):
+    parts = line.split(';')
+    if 'DISPLAY' in line:
+        parts[1] = ' mutt_bgrun ' + parts[1]
+    mymailcap.write(';'.join(parts))
+mymailcap.close()
+

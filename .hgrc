@@ -1,0 +1,36 @@
+[paths]
+rcfiles = https://hg.insophia.com/rcfiles/pablo/
+
+[trusted]
+users = root, mercurial
+ssh = ssh -C
+
+[ui]
+ignore = ~/.hgignore
+username = Pablo Hoffman <pablo@pablohoffman.com>
+
+[extensions]
+hgext.rebase =
+hgext.graphlog = 
+hgext.mq =
+hgext.color =
+hgext.hgk =
+hgext.fetch =
+hgext.purge =
+#hgext.bookmarks =
+#paste = /home/prh/hg/hg-paste/paste.py
+#hggit = /home/prh/hg/hg-git/hggit
+
+[color]
+status.modified = magenta bold
+status.added = green bold
+status.removed = red bold
+status.deleted = cyan bold
+status.unknown = black bold
+status.ignored = blue bold
+
+[hooks]
+#precommit.pylint = cd $(hg root); pylint $(hg st -nma | grep .py); exit 0
+
+[diff]
+git=1

@@ -1,0 +1,3 @@
+#!/bin/sh
+setxkbmap us
+[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap

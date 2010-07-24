@@ -1,0 +1,7 @@
+#command
+h left-scroll
+l right-scroll
+^N next-file
+^P prev-file
+#env
+LESS=-imS
