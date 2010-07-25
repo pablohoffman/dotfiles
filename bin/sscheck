@@ -1,8 +1,0 @@
-#!/bin/sh
-
-echo -n "search1.prod: "
-curl -s -S http://search1.prod:7080/ws/search/status
-echo -n "search2.prod: "
-curl -s -S http://search2.prod:7080/ws/search/status
-echo -n "search.dev  : "
-curl -s -S http://search.dev:7080/ws/search/status
