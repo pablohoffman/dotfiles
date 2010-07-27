@@ -67,8 +67,13 @@ env-h() {
     cd $d
 }
 
+env-bh() {
+    export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:~/hg/ido/bh
+    cd ~/hg/ido/bh
+}
+
 env-jobsbot() {
-    export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy-stable:~/hg/halliday/jobsbot
+    export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:~/hg/halliday/jobsbot
     cd ~/hg/halliday/jobsbot
 }
 
@@ -82,7 +87,7 @@ env-ms() {
 env-msst() {
     d=~/hg/mydeco
     export PATH=$ORIGPATH:~/hg/scrapy/bin
-    export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy-stable:$d/scraping:$d/toolbox
+    export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:$d/scraping:$d/toolbox
     cd $d/scraping
 }
 

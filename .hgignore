@@ -13,6 +13,7 @@ syntax: glob
 *.swp 
 dropin.cache 
 _trial_temp
+*.egg-info
 build
 
 syntax:regexp
