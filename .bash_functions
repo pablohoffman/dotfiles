@@ -77,6 +77,11 @@ env-jobsbot() {
     cd ~/hg/halliday/jobsbot
 }
 
+env-travelmatch() {
+    export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:~/hg/travelmatch/travelmatch
+    cd ~/hg/travelmatch/travelmatch
+}
+
 env-ms() {
     d=~/hg/mydeco
     export PATH=$ORIGPATH:~/hg/scrapy/bin
