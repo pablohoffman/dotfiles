@@ -77,9 +77,17 @@ env-jobsbot() {
     cd ~/hg/halliday/jobsbot
 }
 
-env-travelmatch() {
+env-tmbot() {
     export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:~/hg/travelmatch/travelmatch
     cd ~/hg/travelmatch/travelmatch
+}
+
+env-blogbot() {
+    d=~/hg/mydeco
+    export PATH=$ORIGPATH:~/hg/scrapy/bin
+    export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:$d/blogbot:$d/toolbox
+    cd $d/blogbot
+    . ~/aws/dev
 }
 
 env-ms() {
@@ -87,6 +95,7 @@ env-ms() {
     export PATH=$ORIGPATH:~/hg/scrapy/bin
     export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:$d/scraping:$d/toolbox
     cd $d/scraping
+    . ~/aws/dev
 }
 
 env-msst() {
@@ -94,6 +103,7 @@ env-msst() {
     export PATH=$ORIGPATH:~/hg/scrapy/bin
     export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:$d/scraping:$d/toolbox
     cd $d/scraping
+    . ~/aws/dev
 }
 
 env-as() {
@@ -101,12 +111,14 @@ env-as() {
     export PYTHONPATH=$ORIGPYTHONPATH:$d/toolbox:$d/autoscraping:~/hg/scrapy:~/hg/mydeco/scraping
     export DJANGO_SETTINGS_MODULE=autoscraping.ui.settings
     cd $d/autoscraping/autoscraping
+    . ~/aws/dev
 }
 
 env-translate() {
     d=~/hg/mydeco
     export PYTHONPATH=$ORIGPYTHONPATH:~/svn/xappy:$d/toolbox:$d/translate
     cd $d/translate
+    . ~/aws/dev
 }
 
 env-search() {
@@ -114,6 +126,7 @@ env-search() {
     d=~/hg/mydeco
     export PYTHONPATH=$ORIGPYTHONPATH:~/svn/xappy/libs/install/usr/lib/python2.6/site-packages:~/svn/xappy:$d/toolbox:$d/search
     cd $d/search
+    . ~/aws/dev
 }
 
 sri() {
@@ -129,6 +142,7 @@ srs() {
 env-site() {
     export PYTHONPATH=~/src/Django-1.0.2-final:$HOME/svn/pycaptcha
     cd ~/hg/mydeco/site/bydesign
+    . ~/aws/dev
 }
 
 run-site() {
