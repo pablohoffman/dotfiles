@@ -68,21 +68,25 @@ env-h() {
 }
 
 env-bh() {
+    sc
     export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:~/hg/ido/bh
     cd ~/hg/ido/bh
 }
 
 env-jobsbot() {
+    sc
     export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:~/hg/halliday/jobsbot
     cd ~/hg/halliday/jobsbot
 }
 
 env-tmbot() {
+    sc
     export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:~/hg/travelmatch/travelmatch
     cd ~/hg/travelmatch/travelmatch
 }
 
 env-blogbot() {
+    sc
     d=~/hg/mydeco
     export PATH=$ORIGPATH:~/hg/scrapy/bin
     export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:$d/blogbot:$d/toolbox
@@ -91,6 +95,7 @@ env-blogbot() {
 }
 
 env-ms() {
+    sc
     d=~/hg/mydeco
     export PATH=$ORIGPATH:~/hg/scrapy/bin
     export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:$d/scraping:$d/toolbox
@@ -99,6 +104,7 @@ env-ms() {
 }
 
 env-msst() {
+    scst
     d=~/hg/mydeco
     export PATH=$ORIGPATH:~/hg/scrapy/bin
     export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:$d/scraping:$d/toolbox
@@ -107,6 +113,7 @@ env-msst() {
 }
 
 env-as() {
+    sc
     d=~/hg/mydeco
     export PYTHONPATH=$ORIGPYTHONPATH:$d/toolbox:$d/autoscraping:~/hg/scrapy:~/hg/mydeco/scraping
     export DJANGO_SETTINGS_MODULE=autoscraping.ui.settings
