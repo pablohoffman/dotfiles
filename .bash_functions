@@ -50,72 +50,66 @@ uptoolbox() {
 sc() {
     export PYTHONPATH=~/hg/scrapy
     export PATH=$ORIGPATH:~/hg/scrapy/bin
+    . ~/hg/scrapy/extras/scrapy_bash_completion
     cd ~/hg/scrapy/scrapy
 }
 
 scst() {
     export PYTHONPATH=~/hg/scrapy-stable
     export PATH=$ORIGPATH:~/hg/scrapy-stable/bin
+    . ~/hg/scrapy/extras/scrapy_bash_completion
     cd ~/hg/scrapy-stable/scrapy
 }
 
 
 env-h() {
+    sc
     d=~/hg/insophia/scrapinghub
-    export PATH=$ORIGPATH:$d/bin
-    export PYTHONPATH=$ORIGPYTHONPATH:~/src/Django-1.2.1:~/hg/scrapy:$d
+    export PATH=$PATH:$d/bin
+    export PYTHONPATH=$PYTHONPATH:~/src/Django-1.2.1:$d
     cd $d
 }
 
 env-bh() {
     sc
-    export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:~/hg/ido/bh
+    export PYTHONPATH=$PYTHONPATH:~/hg/ido/bh
     cd ~/hg/ido/bh
 }
 
 env-jobsbot() {
     sc
-    export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:~/hg/halliday/jobsbot
+    export PYTHONPATH=$PYTHONPATH:~/hg/halliday/jobsbot
     cd ~/hg/halliday/jobsbot
 }
 
 env-tmbot() {
     sc
-    export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:~/hg/travelmatch/travelmatch
+    export PYTHONPATH=$YTHONPATH:~/hg/travelmatch/travelmatch
     cd ~/hg/travelmatch/travelmatch
 }
 
 env-blogbot() {
     sc
     d=~/hg/mydeco
-    export PATH=$ORIGPATH:~/hg/scrapy/bin
-    export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:$d/blogbot:$d/toolbox
+    export PATH=$PATH:~/hg/scrapy/bin
+    export PYTHONPATH=$PYTHONPATH:$d/blogbot:$d/toolbox
     cd $d/blogbot
     . ~/aws/dev
 }
 
-env-ms() {
+env-decobot() {
     sc
     d=~/hg/mydeco
     export PATH=$ORIGPATH:~/hg/scrapy/bin
-    export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:$d/scraping:$d/toolbox
+    export PYTHONPATH=$PYTHONPATH:$d/scraping:$d/toolbox
     cd $d/scraping
     . ~/aws/dev
 }
 
-env-msst() {
-    scst
-    d=~/hg/mydeco
-    export PATH=$ORIGPATH:~/hg/scrapy/bin
-    export PYTHONPATH=$ORIGPYTHONPATH:~/hg/scrapy:$d/scraping:$d/toolbox
-    cd $d/scraping
-    . ~/aws/dev
-}
-
-env-as() {
+env-asbot() {
     sc
     d=~/hg/mydeco
-    export PYTHONPATH=$ORIGPYTHONPATH:$d/toolbox:$d/autoscraping:~/hg/scrapy:~/hg/mydeco/scraping
+    export PYTHONPATH=$PYTHONPATH:$d/toolbox:$d/autoscraping:~/hg/mydeco/scraping
     export DJANGO_SETTINGS_MODULE=autoscraping.ui.settings
     cd $d/autoscraping/autoscraping
     . ~/aws/dev

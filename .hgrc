@@ -1,5 +1,6 @@
 [paths]
 rcfiles = https://hg.insophia.com/rcfiles/pablo/
+github = git@github.com:insophia/scrapy.git
 
 [trusted]
 users = root, mercurial
@@ -17,9 +18,11 @@ hgext.color =
 hgext.hgk =
 hgext.fetch =
 hgext.purge =
-#hgext.bookmarks =
+#hgext.patchbomb =
 #paste = /home/prh/hg/hg-paste/paste.py
-#hggit = /home/prh/hg/hg-git/hggit
+
+#hgext.bookmarks =
+#hggit =
 
 [color]
 status.modified = magenta bold
@@ -34,3 +37,6 @@ status.ignored = blue bold
 
 [diff]
 git=1
+
+[email]
+method = /usr/sbin/sendmail
