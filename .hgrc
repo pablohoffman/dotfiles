@@ -19,7 +19,7 @@ hgext.hgk =
 hgext.fetch =
 hgext.purge =
 #hgext.patchbomb =
-#paste = /home/prh/hg/hg-paste/paste.py
+paste = ~/.hgext/paste.py
 
 #hgext.bookmarks =
 #hggit =
@@ -40,3 +40,9 @@ git=1
 
 [email]
 method = /usr/sbin/sendmail
+
+[alias]
+paste = paste --dest dpaste.org
+ipaste = paste --dest dpaste.org --url "https://paste.insophia.com" --usenetrc
+mpaste = paste --dest pastebin.dixo.net --url "https://dev.mydeco.com/pastebin/" --usenetrc
+qpaste = paste -r qtip
