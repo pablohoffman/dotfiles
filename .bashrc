@@ -24,13 +24,10 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
+UC='\[\033[01;32m\]'                     # green for user
+[ $UID -eq "0" ] && UC='\[\033[01;31m\]' # red for root
 
-# Comment in the above and uncomment this below for a color prompt
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\H\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+PS1="$UC\u@\H\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\\$ "
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
