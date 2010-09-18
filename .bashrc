@@ -27,7 +27,7 @@ shopt -s checkwinsize
 UC='\[\033[01;32m\]'                     # green for user
 [ $UID -eq "0" ] && UC='\[\033[01;31m\]' # red for root
 
-PS1="$UC\u@\H\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\\$ "
+PS1="$UC\u@\H\[\033[00m\]:\[\033[01;34m\]\w \[\033[1;30m\][\t]\[\033[00m\]\n\\$ "
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
