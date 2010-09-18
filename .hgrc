@@ -42,7 +42,7 @@ git=1
 method = /usr/sbin/sendmail
 
 [alias]
-paste = paste --dest dpaste.org
-ipaste = paste --dest dpaste.org --url "https://paste.insophia.com" --usenetrc
-mpaste = paste --dest pastebin.dixo.net --url "https://dev.mydeco.com/pastebin/" --usenetrc
-qpaste = paste -r qtip
+paste = paste --dest dpaste.org -u pablo
+ipaste = paste --dest dpaste.org --url "https://paste.insophia.com" --usenetrc -u pablo
+mpaste = paste --dest pastebin.dixo.net --url "https://dev.mydeco.com/pastebin/" --usenetrc -u pablo
+qpaste = paste -r qtip -u pablo

@@ -82,6 +82,12 @@ env-jobsbot() {
     cd ~/hg/halliday/jobsbot
 }
 
+env-dealbot() {
+    sc
+    export PYTHONPATH=$PYTHONPATH:~/hg/kline/dealbot
+    cd ~/hg/kline/dealbot
+}
+
 env-tmbot() {
     sc
     export PYTHONPATH=$YTHONPATH:~/hg/travelmatch/travelmatch
