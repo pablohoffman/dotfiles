@@ -57,7 +57,7 @@ sc() {
 scst() {
     export PYTHONPATH=~/hg/scrapy-stable
     export PATH=$ORIGPATH:~/hg/scrapy-stable/bin
-    . ~/hg/scrapy/extras/scrapy_bash_completion
+    . ~/hg/scrapy-stable/extras/scrapy_bash_completion
     cd ~/hg/scrapy-stable/scrapy
 }
 
@@ -72,26 +72,26 @@ env-h() {
 
 env-bh() {
     sc
-    export PYTHONPATH=$PYTHONPATH:~/hg/ido/bh
-    cd ~/hg/ido/bh
+    export PYTHONPATH=$PYTHONPATH:~/hg/scrapy-projects/bh
+    cd ~/hg/scrapy-projects/bh
 }
 
 env-jobsbot() {
     sc
-    export PYTHONPATH=$PYTHONPATH:~/hg/halliday/jobsbot
-    cd ~/hg/halliday/jobsbot
+    export PYTHONPATH=$PYTHONPATH:~/hg/scrapy-projects/jobsbot
+    cd ~/hg/scrapy-projects/jobsbot
 }
 
 env-dealbot() {
     sc
-    export PYTHONPATH=$PYTHONPATH:~/hg/kline/dealbot
-    cd ~/hg/kline/dealbot
+    export PYTHONPATH=$PYTHONPATH:~/hg/scrapy-projects/dealbot
+    cd ~/hg/scrapy-projects/dealbot
 }
 
 env-tmbot() {
     sc
-    export PYTHONPATH=$YTHONPATH:~/hg/travelmatch/travelmatch
-    cd ~/hg/travelmatch/travelmatch
+    export PYTHONPATH=$YTHONPATH:~/hg/scrapy-projects/tmbot
+    cd ~/hg/scrapy-projects/tmbot
 }
 
 env-blogbot() {
@@ -150,19 +150,4 @@ env-site() {
     export PYTHONPATH=~/src/Django-1.0.2-final:$HOME/svn/pycaptcha
     cd ~/hg/mydeco/site/bydesign
     . ~/aws/dev
-}
-
-run-site() {
-    env-site $1
-    python manage.py runserver 0.0.0.0:8000
-}
-
-env-scrapy() {
-    export PYTHONPATH=/opt/scrapy:~/scrapy
-    export PATH=$ORIGPATH:/opt/scrapy/scrapy/bin
-}
-
-env-django() {
-    export PYTHONPATH=/opt/django
-    export PATH=$ORIGPATH:/opt/django/django/bin
 }
