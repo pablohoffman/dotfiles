@@ -90,7 +90,7 @@ env-dealbot() {
 
 env-tmbot() {
     sc
-    export PYTHONPATH=$YTHONPATH:~/hg/scrapy-projects/tmbot
+    export PYTHONPATH=$PYTHONPATH:~/hg/scrapy-projects/tmbot
     cd ~/hg/scrapy-projects/tmbot
 }
 
