@@ -19,7 +19,6 @@ complete -F _ssh kssh
 
 redisplay() {
     xrandr --output LVDS1 --auto --output VGA1 --auto --primary --right-of LVDS1
-    kill -SIGHUP $(pidof awesome)
 }
 
 # a shortcut for creating and attaching to screen sessions

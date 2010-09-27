@@ -10,7 +10,6 @@ alias la='ls -A'
 alias l='ls -CF'
 alias grep='grep --color'
 alias less='less -nr'
-alias st="svn st"
 alias hgp="hg pull -u"
 alias hgcl="find -name '*.orig' -delete"
 alias rmpyc="find -name '*.pyc' -delete"
