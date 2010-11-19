@@ -21,7 +21,7 @@ hgext.purge =
 #hgext.patchbomb =
 paste = ~/.hgext/paste.py
 
-#hgext.bookmarks =
+hgext.bookmarks =
 #hggit =
 
 [color]

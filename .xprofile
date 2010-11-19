@@ -1,4 +1,5 @@
 #!/bin/sh
+eval $(gpg-agent --daemon)
 #gnome-settings-daemon &
 #nm-applet &
 #gnome-power-manager &

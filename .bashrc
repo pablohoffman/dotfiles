@@ -78,7 +78,7 @@ export PATH=$PATH:/usr/sbin:~/bin
     export PATH=$PATH:/opt/scraping/bin
 }
 
-export GPGKEY=24C071FE
+#export GPGKEY=24C071FE
 
 # Add some paths if they exist
 [ -d ~/hg/mydeco/toolbox/bin ] && export PATH=$PATH:~/hg/mydeco/toolbox/bin

@@ -17,9 +17,12 @@ kssh() {
 }
 complete -F _ssh kssh
 
-redisplay() {
-    xrandr --output LVDS1 --auto --output VGA1 --auto --primary --right-of LVDS1
+e() {
+    cd ~/envs/$1
+    . bin/activate
+    eval "$(pip completion --bash)"
 }
+complete -W "$(ls ~/envs 2>/dev/null)" e
 
 # a shortcut for creating and attaching to screen sessions
 scr() {
@@ -65,7 +68,8 @@ env-h() {
     sc
     d=~/hg/insophia/scrapinghub
     export PATH=$PATH:$d/bin
-    export PYTHONPATH=$PYTHONPATH:~/src/Django-1.2.1:$d
+#    export PYTHONPATH=$PYTHONPATH:~/src/Django-1.2.1:$d
+    export PYTHONPATH=$PYTHONPATH:~/src/Django-1.2.1
     cd $d
 }
 
