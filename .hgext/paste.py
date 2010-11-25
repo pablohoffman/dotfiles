@@ -36,10 +36,15 @@ def _paste_pastebin_dixo_net(content, syntax, user, keep, **kw):
         'expiry': 'f' if keep else 'm',
         })
 
+def _paste_lodgeit(content, syntax, private, **kw):
+    data = {'code': content, 'language': syntax or 'diff'}
+    if private: data['private'] = 'on'
+    return ('http://paste.pocoo.org/', data)
+
 def _paste(handler, content, opts):
     default_url, data = handler(content, **opts)
     url = opts['url'] or default_url
-    request = urllib2.Request(url, urlencode(data))
+    request = urllib2.Request(url, urlencode(data, doseq=1))
     _authorize_request(request, **opts)
     response = urllib2.urlopen(request)
     return response.geturl()
@@ -136,6 +141,8 @@ cmdtable = {
                            'username configured for Mercurial)'),
         ('k', 'keep', False, 'specify that the pastebin should keep the paste '
                              'for as long as possible (optional)'),
+        ('p', 'private', False, 'specify that the pastebin should mark a'
+                             'paste as private if possible (optional)'),
         ('',  'dry-run', False, 'do not paste to the pastebin'),
         ('',  'url', '', 'perform request against this url'),
         ('',  'httpauth', '', 'http authorization (user:pass)'),
@@ -162,5 +169,9 @@ help.helptable += (
     pastebin.dixo.net
         website: http://pastebin.dixo.net/
         supported metadata options: --keep, --user --syntax
+
+    lodgeit
+        website: http://paste.pocoo.org/
+        supported metadata options: --syntax, --private
     ''')),
 )
