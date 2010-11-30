@@ -15,6 +15,7 @@ dropin.cache
 _trial_temp
 *.egg-info
 build
+.scrapy
 
 syntax:regexp
 ^autoscraping/data
