@@ -22,7 +22,7 @@ hgext.purge =
 paste = ~/.hgext/paste.py
 
 hgext.bookmarks =
-#hggit =
+#hgext.git =
 
 [color]
 status.modified = magenta bold
