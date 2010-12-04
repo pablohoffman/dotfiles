@@ -47,3 +47,4 @@ ipaste = paste --dest lodgeit --url "https://paste.insophia.com" --usenetrc
 ipastepy = ipaste --stdin --syntax python
 mpaste = paste --dest pastebin.dixo.net --url "https://dev.mydeco.com/pastebin/" --usenetrc -u pablo
 qpaste = paste -r qtip -u pablo
+qipaste = ipaste -r qtip
