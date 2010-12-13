@@ -22,14 +22,9 @@ set background=light   " para conservar la vista hasta los 80
 set wildmenu           " mostrar menu scrollable al buscar archivos
 set wildmode=list:longest,full  " que al primer TAB muestre lista completa y con el segundo recorrar los files
 
-" habilito syntax highlighting (viene por defecto en fedora/centos, pero no
-" en otras distros)
 syntax on
 
 highlight Folded ctermfg=black
-
-" para que use folding inteligente en archivos php
-let php_folding = 1
 
 " tab completion
 function! CleverTab()
@@ -41,13 +36,8 @@ function! CleverTab()
 inoremap <TAB> <C-R>=CleverTab()<CR>
 set backspace=indent,eol,start
 
-" mostrar numero de lineas para archivos php
-" autocmd filetype php set number
-autocmd filetype php set keywordprg=phpman
-autocmd filetype docbk set foldmethod=syntax
-
 au Bufenter *.json set filetype=javascript
-
+au Bufenter master.cfg set filetype=python " buildbot
 au BufRead *-sup.* set ft=mail
 
 augroup filetypedetect 
@@ -57,29 +47,6 @@ augroup END
 augroup filetype
     au! BufRead,BufNewFile *.proto setfiletype proto
 augroup end
-
-
-" tildes y caracteres especiales: para usar los mismos shortcuts que mac 
-
-" para compatibilidad con todas las terminales 
-"map! <A-e> e
-"map! <A-n> n
-"map! <A-u> u
-"
-"map! ea <C-k>'a
-"map! eA <C-k>'A
-"map! ee <C-k>'e
-"map! eE <C-k>'E
-"map! ei <C-k>'i
-"map! eI <C-k>'I
-"map! eo <C-k>'o
-"map! eO <C-k>'O
-"map! eu <C-k>'u
-"map! eU <C-k>'U
-"map! en <C-k>?n
-"map! eN <C-k>?N
-"map! 1 <C-k>!I
-"map! ? <C-k>?I
 
 " custom key bindings
 
