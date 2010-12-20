@@ -68,8 +68,7 @@ env-h() {
     sc
     d=~/hg/insophia/scrapinghub
     export PATH=$PATH:$d/bin
-#    export PYTHONPATH=$PYTHONPATH:~/src/Django-1.2.1:$d
-    export PYTHONPATH=$PYTHONPATH:~/src/Django-1.2.1
+    export PYTHONPATH=$d:$PYTHONPATH
     cd $d
 }
 
