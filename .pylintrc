@@ -43,6 +43,9 @@ load-plugins=
 # Disable the message(s) with the given id(s).
 disable-msg=W0142,W0201,W0403,W0622,W0613,W0702,W0703,W0704,C0301,C0111,C0103,R0201
 
+# new pylint uses "disable" option instead of "disble-msg"
+disable=W0142,W0201,W0403,W0622,W0613,W0702,W0703,W0704,C0301,C0111,C0103,R0201,R0921
+
 # Reasons for excluding the messages (see pylint --list-msgs)
 # W0142: we use *args **kwargs a lot
 # W0403: don't issue warnings for relative imports
@@ -56,6 +59,7 @@ disable-msg=W0142,W0201,W0403,W0622,W0613,W0702,W0703,W0704,C0301,C0111,C0103,R0
 # W0704: we use empty except codes to ignore exceptions
 # R0201: it could, but being a method sometimes improves code structure
 # W0622: redefining builtins is not too bad for local scopes
+# R0921: abstract class may not be referenced, but that's ok
 
 [REPORTS]
 
