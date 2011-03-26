@@ -1,6 +1,7 @@
 [paths]
 rcfiles = https://hg.insophia.com/rcfiles/pablo/
 github = git@github.com:insophia/scrapy.git
+scrapy-0.12 = ssh://hg@hg.scrapy.org:2222/scrapy-0.12
 
 [trusted]
 users = root, mercurial

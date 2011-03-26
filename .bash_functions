@@ -3,12 +3,6 @@ reload() {
     . ~/.bashrc
 }
 
-# service control with autocompletion
-ser() {
-    /etc/init.d/$1 $2
-}
-complete -W "$(ls /etc/init.d/)" ser
-
 kssh() {
     host=$1
     shift
@@ -63,6 +57,14 @@ scst() {
     cd ~/hg/scrapy-stable/scrapy
 }
 
+projects_dir=~/hg
+gp() { # goto project
+    sc
+    d=$projects_dir/$1
+    export PYTHONPATH=$PYTHONPATH:~/hg/sophialib:$d
+    cd $d
+}
+complete -W "$(ls -l $projects_dir | grep ^d | cut -b 47- 2>/dev/null)" gp
 
 env-h() {
     sc
@@ -72,28 +74,8 @@ env-h() {
     cd $d
 }
 
-env-bh() {
-    sc
-    export PYTHONPATH=$PYTHONPATH:~/hg/scrapy-projects/bh
-    cd ~/hg/scrapy-projects/bh
-}
-
-env-jobsbot() {
-    sc
-    export PYTHONPATH=$PYTHONPATH:~/hg/scrapy-projects/jobsbot
-    cd ~/hg/scrapy-projects/jobsbot
-}
-
-env-dealbot() {
-    sc
-    export PYTHONPATH=$PYTHONPATH:~/hg/scrapy-projects/dealbot
-    cd ~/hg/scrapy-projects/dealbot
-}
-
-env-tmbot() {
-    sc
-    export PYTHONPATH=$PYTHONPATH:~/hg/scrapy-projects/tmbot
-    cd ~/hg/scrapy-projects/tmbot
+aws-h() {
+    . ~/aws/shub
 }
 
 env-blogbot() {
