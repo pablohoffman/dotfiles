@@ -58,13 +58,13 @@ scst() {
 }
 
 projects_dir=~/hg
-gp() { # goto project
+go() { # go to project
     sc
     d=$projects_dir/$1
     export PYTHONPATH=$PYTHONPATH:~/hg/sophialib:$d
     cd $d
 }
-complete -W "$(ls -l $projects_dir | grep ^d | cut -b 47- 2>/dev/null)" gp
+complete -W "$(ls -l $projects_dir | grep ^d | cut -b 47- 2>/dev/null)" go
 
 env-h() {
     sc
