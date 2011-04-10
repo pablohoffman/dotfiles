@@ -64,7 +64,9 @@ go() { # go to project
     export PYTHONPATH=$PYTHONPATH:~/hg/sophialib:$d
     cd $d
 }
-complete -W "$(ls -l $projects_dir | grep ^d | cut -b 47- 2>/dev/null)" go
+[ -d $projects_dir ] && {
+    complete -W "$(ls -l $projects_dir | grep ^d | cut -b 47- 2>/dev/null)" go
+}
 
 env-h() {
     sc
