@@ -1,0 +1,9 @@
+[user]
+	name = Pablo Hoffman
+	email = pablo@pablohoffman.com
+[core]
+	pager = less -FXRS
+[color]
+	diff = auto
+[core]
+	excludesfile = ~/.gitignore
