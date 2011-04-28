@@ -44,7 +44,7 @@ uptoolbox() {
 }
 
 sc() {
-    export PYTHONPATH=~/hg/scrapy
+    export PYTHONPATH=~/hg/scrapy:~/git/w3lib:~/git/scrapely
     export PATH=$ORIGPATH:~/hg/scrapy/bin
     . ~/hg/scrapy/extras/scrapy_bash_completion
     cd ~/hg/scrapy/scrapy
