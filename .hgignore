@@ -16,6 +16,7 @@ _trial_temp
 *.egg-info
 build
 .scrapy
+scrapyd-data
 
 syntax:regexp
 ^autoscraping/data
