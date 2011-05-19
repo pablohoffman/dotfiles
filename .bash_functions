@@ -11,6 +11,16 @@ kssh() {
 }
 complete -F _ssh kssh
 
+_fab() {
+    local cmd commands
+    cmd=${COMP_WORDS[1]}
+    if [ $COMP_CWORD -eq 1 ]; then
+        commands=$(fab --shortlist)
+        COMPREPLY=(${COMPREPLY[@]:-} $(compgen -W "$commands" -- "$cmd"))
+    fi
+}
+complete -F _fab -o default fab
+
 e() {
     cd ~/envs/$1
     . bin/activate
@@ -61,7 +71,7 @@ projects_dir=~/hg
 go() { # go to project
     sc
     d=$projects_dir/$1
-    export PYTHONPATH=$PYTHONPATH:~/hg/sophialib:$d
+    export PYTHONPATH=$PYTHONPATH:~/hg/sophialib:~/git/scextras:$d
     cd $d
 }
 [ -d $projects_dir ] && {
@@ -69,6 +79,7 @@ go() { # go to project
 }
 
 env-h() {
+    [ -f ~/aws/shub ] && . ~/aws/shub
     sc
     d=~/hg/insophia/scrapinghub
     export PATH=$PATH:$d/bin
@@ -87,6 +98,11 @@ env-blogbot() {
     export PYTHONPATH=$PYTHONPATH:$d/blogbot:$d/toolbox
     cd $d/blogbot
     . ~/aws/dev
+}
+
+env-geocache() {
+    export PYTHONPATH=~/git/python-oauth2
+    cd ~/hg/geocache
 }
 
 env-decobot() {
