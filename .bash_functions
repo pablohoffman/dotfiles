@@ -21,6 +21,12 @@ _fab() {
 }
 complete -F _fab -o default fab
 
+function cdp () {
+    cd "$(python -c "import os.path as _, ${1}; \
+        print _.dirname(_.realpath(${1}.__file__[:-1]))"
+    )"
+}
+
 e() {
     cd ~/envs/$1
     . bin/activate
@@ -67,15 +73,26 @@ scst() {
     cd ~/hg/scrapy-stable/scrapy
 }
 
-projects_dir=~/hg
-go() { # go to project
+hg_projects_dir=~/hg
+go() { # go to hg project
     sc
-    d=$projects_dir/$1
+    d=$hg_projects_dir/$1
     export PYTHONPATH=$PYTHONPATH:~/hg/sophialib:~/git/scextras:$d
     cd $d
 }
-[ -d $projects_dir ] && {
-    complete -W "$(ls -l $projects_dir | grep ^d | cut -b 47- 2>/dev/null)" go
+[ -d $hg_projects_dir ] && {
+    complete -W "$(ls -l $hg_projects_dir | grep ^d | cut -b 47- 2>/dev/null)" go
+}
+
+git_projects_dir=~/git
+gg() { # go to git project
+    sc
+    d=$git_projects_dir/$1
+    export PYTHONPATH=$PYTHONPATH:~/hg/sophialib:~/git/scextras:$d
+    cd $d
+}
+[ -d $git_projects_dir ] && {
+    complete -W "$(ls -l $git_projects_dir | grep ^d | cut -b 46- 2>/dev/null)" gg
 }
 
 env-h() {
