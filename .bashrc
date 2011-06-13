@@ -81,7 +81,6 @@ export PATH=$PATH:/usr/sbin:~/bin
 #export GPGKEY=24C071FE
 
 # Add some paths if they exist
-[ -d ~/hg/mydeco/toolbox/bin ] && export PATH=$PATH:~/hg/mydeco/toolbox/bin
 [ -d ~/.gem/ruby/1.8/bin ] && export PATH=$PATH:~/.gem/ruby/1.8/bin
 
 # Amazon EC2
