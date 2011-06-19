@@ -18,21 +18,8 @@ alias rmorig="find -name '*.orig' -delete"
 alias vj="py -msimplejson.tool"
 alias vjl="py -msimplejson.tool | less"
 alias lock="gnome-screensaver-command --lock"
+alias ipy="ipython"
+alias py="python"
+alias apti="sudo apt-get update && sudo apt-get install"
+
 [ -f /usr/bin/vim -o -f /usr/local/bin/vim ] && alias vi='vim'
-
-if [ -x /usr/bin/ipython2.6 ]; then
-    alias ipy="ipython2.6"
-elif [ -x /usr/bin/ipython2.5 ]; then
-    alias ipy="ipython2.5"
-else
-    alias ipy="ipython"
-fi
-
-if [ -x /usr/bin/python2.6 ]; then
-    alias py="python2.6"
-elif [ -x /usr/bin/python2.5 ]; then
-    alias py="python2.5"
-else
-    alias py="python"
-fi
-
