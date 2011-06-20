@@ -3,5 +3,4 @@
 import sys, json
 
 for l in sys.stdin:
-    k, v = l.split('\t')
-    print json.dumps(json.loads(v), indent=3)
+    print json.dumps(json.loads(l), indent=3)
