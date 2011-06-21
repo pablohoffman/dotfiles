@@ -140,13 +140,6 @@ env-asbot() {
     . ~/aws/dev
 }
 
-env-translate() {
-    d=~/hg/mydeco
-    export PYTHONPATH=$ORIGPYTHONPATH:~/svn/xappy:$d/toolbox:$d/translate
-    cd $d/translate
-    . ~/aws/dev
-}
-
 env-search() {
 #    . ~/virtualenv/mydeco/bin/activate
     d=~/hg/mydeco
@@ -165,8 +158,8 @@ srs() {
     cd $d/search/mydeco/search/server
 }
 
-env-site() {
-    export PYTHONPATH=~/src/Django-1.0.2-final:$HOME/svn/pycaptcha
-    cd ~/hg/mydeco/site/bydesign
-    . ~/aws/dev
+uprcfiles() {
+    cd
+    hg pull -u rcfiles
+    reload
 }
