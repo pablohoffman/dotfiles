@@ -81,7 +81,7 @@ go() { # go to hg project
     cd $d
 }
 [ -d $hg_projects_dir ] && {
-    complete -W "$(ls -l $hg_projects_dir | grep ^d | cut -b 47- 2>/dev/null)" go
+    complete -W "$(ls -l $hg_projects_dir | grep ^d | awk '{print $8}')" go
 }
 
 git_projects_dir=~/git
@@ -92,7 +92,7 @@ gg() { # go to git project
     cd $d
 }
 [ -d $git_projects_dir ] && {
-    complete -W "$(ls -l $git_projects_dir | grep ^d | cut -b 46- 2>/dev/null)" gg
+    complete -W "$(ls -l $git_projects_dir | grep ^d | awk '{print $8}')" gg
 }
 
 env-h() {
