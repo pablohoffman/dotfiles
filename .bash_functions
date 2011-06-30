@@ -98,7 +98,7 @@ gg() { # go to git project
 env-h() {
     [ -f ~/aws/shub ] && . ~/aws/shub
     sc
-    d=~/hg/insophia/scrapinghub
+    d=~/hg/scrapinghub
     export PATH=$PATH:$d/bin
     export PYTHONPATH=$d:$PYTHONPATH
     cd $d
