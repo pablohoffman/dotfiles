@@ -2,5 +2,7 @@
 
 import sys, json
 
-for l in sys.stdin:
+f = open(sys.argv[1]) if len(sys.argv) > 1 else sys.stdin
+
+for l in f:
     print json.dumps(json.loads(l), indent=3)
