@@ -21,6 +21,7 @@ alias vjl="py -msimplejson.tool | less"
 alias lock="gnome-screensaver-command --lock"
 alias ipy="ipython"
 alias py="python"
-alias apti="sudo apt-get -qq update && sudo apt-get install"
+# upgrade package
+alias upkg="sudo apt-get -qq update && sudo apt-get install"
 
 [ -f /usr/bin/vim -o -f /usr/local/bin/vim ] && alias vi='vim'
