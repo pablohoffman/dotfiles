@@ -100,21 +100,12 @@ env-h() {
     sc
     d=~/hg/scrapinghub
     export PATH=$PATH:$d/bin
-    export PYTHONPATH=$d:$PYTHONPATH
+    export PYTHONPATH=$d:~/hg/sophialib:$PYTHONPATH
     cd $d
 }
 
 aws-h() {
     . ~/aws/shub
-}
-
-env-blogbot() {
-    sc
-    d=~/hg/mydeco
-    export PATH=$PATH:~/hg/scrapy/bin
-    export PYTHONPATH=$PYTHONPATH:$d/blogbot:$d/toolbox
-    cd $d/blogbot
-    . ~/aws/dev
 }
 
 env-geocache() {

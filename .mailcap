@@ -1,2 +1,2 @@
 # this one is not included in default ubuntu /etc/mailcap
-application/x-msexcel; ooffice '%s'
+application/x-msexcel; libreoffice '%s'
