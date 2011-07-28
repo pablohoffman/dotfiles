@@ -78,6 +78,7 @@ go() { # go to hg project
     sc
     d=$hg_projects_dir/$1
     export PYTHONPATH=$PYTHONPATH:~/hg/sophialib:~/git/scextras:$d
+    export PATH=$ORIGPATH:~/hg/sophialib/bin
     cd $d
 }
 [ -d $hg_projects_dir ] && {
@@ -89,6 +90,7 @@ gg() { # go to git project
     sc
     d=$git_projects_dir/$1
     export PYTHONPATH=$PYTHONPATH:~/hg/sophialib:~/git/scextras:$d
+    export PATH=$ORIGPATH:~/hg/sophialib/bin
     cd $d
 }
 [ -d $git_projects_dir ] && {
