@@ -90,7 +90,7 @@ gg() { # go to git project
     sc
     d=$git_projects_dir/$1
     export PYTHONPATH=$PYTHONPATH:~/hg/sophialib:~/git/scextras:$d
-    export PATH=$ORIGPATH:~/hg/sophialib/bin
+    export PATH=$ORIGPATH:~/hg/sophialib/bin:~/hg/scrapy/bin
     cd $d
 }
 [ -d $git_projects_dir ] && {
