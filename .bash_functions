@@ -78,7 +78,7 @@ go() { # go to hg project
     sc
     d=$hg_projects_dir/$1
     export PYTHONPATH=$PYTHONPATH:~/hg/sophialib:~/git/scextras:$d
-    export PATH=$ORIGPATH:~/hg/sophialib/bin
+    export PATH=$ORIGPATH:~/hg/sophialib/bin:~/hg/scrapy/bin
     cd $d
 }
 [ -d $hg_projects_dir ] && {
