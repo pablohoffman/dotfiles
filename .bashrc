@@ -80,6 +80,8 @@ export PATH=$PATH:/usr/sbin:~/bin
 
 #export GPGKEY=24C071FE
 
+export WORKON_HOME=~/envs
+
 # Add some paths if they exist
 [ -d ~/.gem/ruby/1.8/bin ] && export PATH=$PATH:~/.gem/ruby/1.8/bin
 
