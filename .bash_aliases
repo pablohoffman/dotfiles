@@ -19,7 +19,13 @@ alias rmall="rmpyc; rmrej; rmorig"
 alias vj="py -msimplejson.tool"
 alias vjl="py -msimplejson.tool | less"
 alias lock="gnome-screensaver-command --lock"
-alias ipy="ipython"
+
+# to support running ipython/nosetests/trial/twistd on virtualenv
+alias ipython="python /usr/bin/ipython"
+alias ipy="python /usr/bin/ipython"
+alias nosetests="python /usr/bin/nosetests"
+alias trial="python /usr/bin/trial"
+alias twistd="python /usr/bin/twistd"
 alias py="python"
 # upgrade package
 alias upkg="sudo apt-get -qq update && sudo apt-get install"
