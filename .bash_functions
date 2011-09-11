@@ -53,72 +53,38 @@ scr() {
 ORIGPATH=$PATH
 ORIGPYTHONPATH=$PYTHONPATH
 
-uptoolbox() {
-    cd ~/hg/mydeco/toolbox
-    hg pull -u
-    cd -
-}
-
 sc() {
-    export PYTHONPATH=~/hg/scrapy:~/git/w3lib:~/git/scrapely
-    export PATH=$ORIGPATH:~/hg/scrapy/bin
-    [ -f ~/hg/scrapy/extras/scrapy_bash_completion ] && . ~/hg/scrapy/extras/scrapy_bash_completion
-    [ -d ~/hg/scrapy/scrapy ] && cd ~/hg/scrapy/scrapy
+    export PYTHONPATH=~/src/scrapy:~/src/w3lib:~/src/scrapely
+    export PATH=$ORIGPATH:~/src/scrapy/bin
+    [ -f ~/src/scrapy/extras/scrapy_bash_completion ] && . ~/src/scrapy/extras/scrapy_bash_completion
+    [ -d ~/src/scrapy/scrapy ] && cd ~/src/scrapy/scrapy
 }
 
-scst() {
-    export PYTHONPATH=~/hg/scrapy-stable
-    export PATH=$ORIGPATH:~/hg/scrapy-stable/bin
-    . ~/hg/scrapy-stable/extras/scrapy_bash_completion
-    cd ~/hg/scrapy-stable/scrapy
-}
-
-hg_projects_dir=~/hg
+projects_dir=~/src
 go() { # go to hg project
     sc
-    d=$hg_projects_dir/$1
-    export PYTHONPATH=$PYTHONPATH:~/hg/sophialib:~/git/scextras:$d
-    export PATH=$ORIGPATH:~/hg/sophialib/bin:~/hg/scrapy/bin
+    d=$projects_dir/$1
+    export PYTHONPATH=$PYTHONPATH:~/src/sophialib:~/src/scextras:$d
+    export PATH=$ORIGPATH:~/src/sophialib/bin:~/src/scrapy/bin
     cd $d
 }
-[ -d $hg_projects_dir ] && {
-    complete -W "$(ls -l $hg_projects_dir | grep ^d | awk '{print $8}')" go
-}
-
-git_projects_dir=~/git
-gg() { # go to git project
-    sc
-    d=$git_projects_dir/$1
-    export PYTHONPATH=$PYTHONPATH:~/hg/sophialib:~/git/scextras:$d
-    export PATH=$ORIGPATH:~/hg/sophialib/bin:~/hg/scrapy/bin
-    cd $d
-}
-[ -d $git_projects_dir ] && {
-    complete -W "$(ls -l $git_projects_dir | grep ^d | awk '{print $8}')" gg
+[ -d $projects_dir ] && {
+    complete -W "$(ls -l $projects_dir | grep ^d | awk '{print $8}')" go
 }
 
 env-h() {
     [ -f ~/aws/shub ] && . ~/aws/shub
     sc
-    d=~/hg/scrapinghub
+    d=~/src/scrapinghub
     export PATH=$PATH:$d/bin
-    export PYTHONPATH=$d:~/hg/sophialib:$PYTHONPATH
+    export PYTHONPATH=$d:~/src/sophialib:$PYTHONPATH
     cd $d
-}
-
-aws-h() {
-    . ~/aws/shub
-}
-
-env-geocache() {
-    export PYTHONPATH=~/git/python-oauth2
-    cd ~/hg/geocache
 }
 
 env-decobot() {
     sc
-    d=~/hg/mydeco
-    export PATH=$ORIGPATH:~/hg/scrapy/bin
+    d=~/src/mydeco
+    export PATH=$ORIGPATH:~/src/scrapy/bin
     export PYTHONPATH=$PYTHONPATH:$d/scraping:$d/toolbox
     cd $d/scraping
     . ~/aws/dev
@@ -126,29 +92,11 @@ env-decobot() {
 
 env-asbot() {
     sc
-    d=~/hg/mydeco
-    export PYTHONPATH=$PYTHONPATH:$d/toolbox:$d/autoscraping:~/hg/mydeco/scraping
+    d=~/src/mydeco
+    export PYTHONPATH=$PYTHONPATH:$d/toolbox:$d/autoscraping:~/src/mydeco/scraping
     export DJANGO_SETTINGS_MODULE=autoscraping.ui.settings
     cd $d/autoscraping/autoscraping
     . ~/aws/dev
-}
-
-env-search() {
-#    . ~/virtualenv/mydeco/bin/activate
-    d=~/hg/mydeco
-    export PYTHONPATH=$ORIGPYTHONPATH:~/svn/xappy/libs/install/usr/lib/python2.6/site-packages:~/svn/xappy:$d/toolbox:$d/search
-    cd $d/search
-    . ~/aws/dev
-}
-
-sri() {
-    env-search $1
-    cd $d/search/mydeco/search/indexer
-}
-
-srs() {
-    env-search $1
-    cd $d/search/mydeco/search/server
 }
 
 uprcfiles() {
