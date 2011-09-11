@@ -61,7 +61,7 @@ map ,n :bn<CR>
 map ,p :bp<CR>
 map ,, :noh<CR>
 map ,e :tabedit 
-map ,y :!pylint %<CR>
+map ,y :!python /usr/bin/pylint %<CR>
 map ,au :!hg annotate -u % \| less<CR>
 " Mercurial diff
 map ,md :!hg cat % \| vim -R - -c ":vert diffsplit %"<CR>

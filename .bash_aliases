@@ -26,6 +26,7 @@ alias ipy="python /usr/bin/ipython"
 alias nosetests="python /usr/bin/nosetests"
 alias trial="python /usr/bin/trial"
 alias twistd="python /usr/bin/twistd"
+alias pylint="python /usr/bin/pylint"
 alias py="python"
 # upgrade package
 alias upkg="sudo apt-get -qq update && sudo apt-get install"
