@@ -29,6 +29,6 @@ alias twistd="python /usr/bin/twistd"
 alias pylint="python /usr/bin/pylint"
 alias py="python"
 # upgrade package
-alias upkg="sudo apt-get -qq update && sudo apt-get install"
+alias aptup="sudo apt-get -qq update && sudo apt-get install"
 
 [ -f /usr/bin/vim -o -f /usr/local/bin/vim ] && alias vi='vim'
