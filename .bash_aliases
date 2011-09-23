@@ -27,6 +27,7 @@ alias nosetests="python /usr/bin/nosetests"
 alias trial="python /usr/bin/trial"
 alias twistd="python /usr/bin/twistd"
 alias pylint="python /usr/bin/pylint"
+alias fab="python /usr/local/bin/fab"
 alias py="python"
 # upgrade package
 alias aptup="sudo apt-get -qq update && sudo apt-get install"
