@@ -30,6 +30,6 @@ alias pylint="python /usr/bin/pylint"
 alias fab="python /usr/local/bin/fab"
 alias py="python"
 # upgrade package
-alias aptup="sudo apt-get -qq update && sudo apt-get install"
+alias upapt="sudo apt-get -qq update && sudo apt-get install"
 
 [ -f /usr/bin/vim -o -f /usr/local/bin/vim ] && alias vi='vim'
