@@ -19,6 +19,8 @@ alias rmall="rmpyc; rmrej; rmorig"
 alias vj="py -msimplejson.tool"
 alias vjl="py -msimplejson.tool | less"
 alias lock="gnome-screensaver-command --lock"
+alias upapt="sudo apt-get -qq update && sudo apt-get install"
+alias goerl14=". /opt/erlang/r14b04/activate"
 
 # to support running ipython/nosetests/trial/twistd on virtualenv
 alias ipython="python /usr/bin/ipython"
@@ -29,7 +31,5 @@ alias twistd="python /usr/bin/twistd"
 alias pylint="python /usr/bin/pylint"
 alias fab="python /usr/local/bin/fab"
 alias py="python"
-# upgrade package
-alias upapt="sudo apt-get -qq update && sudo apt-get install"
 
 [ -f /usr/bin/vim -o -f /usr/local/bin/vim ] && alias vi='vim'

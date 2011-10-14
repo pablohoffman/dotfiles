@@ -7,6 +7,8 @@ set tabstop=8
 set smartindent
 set autoindent
 
+filetype plugin indent on
+
 set hlsearch
 set showmatch          " al insertar closing brackets mostrar el opening bracket
 set incsearch          " busqueda incremental (no recomendada para terminales lentas)
@@ -74,26 +76,6 @@ nmap ,ss :set spell spelllang=<CR>
 " spell check (aspell)
 "map ,ss :w!<CR>:!aspell check --lang=es -e %<CR>:e! %<CR>
 "map ,se :w!<CR>:!aspell check --lang=en -e %<CR>:e! %<CR>
-
-
-" diferencias del archivo actual con la version del repo
-function! SvnDiff()
-    let ft = &ft
-    let fp = expand("%:p:h")
-    let fn = expand("%:t")
-    execute ":vertical belowright diffsplit ".fp."/.svn/text-base/".fn.".svn-base"
-    execute ":set filetype=".ft
-    execute ":wincmd h"
-    unlet fp fn ft
-endfunction
-nmap ,v :call SvnDiff()<CR>
-
-" diferencias del archivo actual con la version del repo
-function! SvnUnDiff()
-    execute ":bd"
-    execute ":diffoff"
-endfunction
-nmap ,V :call SvnUnDiff()<CR>
 
 "set tabline=%!MyTabLine()
 
