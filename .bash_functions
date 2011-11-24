@@ -34,6 +34,10 @@ e() {
 }
 complete -W "$(ls ~/envs 2>/dev/null)" e
 
+pp() { # add path to python path
+    export PYTHONPATH=$1:$PYTHONPATH
+}
+
 # a shortcut for creating and attaching to screen sessions
 scr() {
     screen -q -ls
