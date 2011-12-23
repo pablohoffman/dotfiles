@@ -1,7 +1,5 @@
 [paths]
-rcfiles = https://hg.insophia.com/rcfiles/pablo/
-github = git@github.com:insophia/scrapy.git
-scrapy-0.12 = ssh://hg@hg.scrapy.org:2222/scrapy-0.12
+rcfiles = https://hg.scrapinghub.com/rcfiles/pablo/
 
 [trusted]
 users = root, mercurial
@@ -44,7 +42,7 @@ method = /usr/sbin/sendmail
 
 [alias]
 paste = paste --dest dpaste.org -u pablo
-ipaste = paste --dest lodgeit --url "https://paste.insophia.com" --usenetrc
+ipaste = paste --dest lodgeit --url "https://paste.scrapinghub.com" --usenetrc
 ipastepy = ipaste --stdin --syntax python
 mpaste = paste --dest pastebin.dixo.net --url "https://dev.mydeco.com/pastebin/" --usenetrc -u pablo
 qpaste = paste -r qtip -u pablo

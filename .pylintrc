@@ -131,7 +131,7 @@ zope=yes
 # so shouldn't trigger E0201 when accessed (need zope=yes to be considered).
 generated-members=REQUEST,acl_users,aq_parent,validateInvariants,callWhenRunning,addSystemEventTrigger,blockingCallFromThread,callFromThread,callLater,spawnProcess,listenTCP,getPage,run,stop,running,SIGBREAK,SIGUSR1,SIGUSR2,connectTCP,connectSSL,installResolver
 
-ignored-classes=ParseResult,SplitResult
+ignored-classes=ParseResult,SplitResult,PagesCrawler
 
 # checks for :
 # * doc strings
