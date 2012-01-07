@@ -10,5 +10,5 @@ echo "Filename   : $fn.jpg"
 echo -n "Description: "
 read description
 
-scanimage --resolution 200 --mode color --progress | convert - $fn.jpg
+scanimage --resolution 300 --mode color --progress | convert - $fn.jpg
 echo "$description" >$fn.txt
