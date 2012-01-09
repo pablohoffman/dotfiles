@@ -73,6 +73,9 @@ nmap ,se :set spell spelllang=en<CR>
 nmap ,sp :set spell spelllang=es<CR>
 nmap ,ss :set spell spelllang=<CR>
 
+" paste X clipboard
+nmap ,v "+gP
+
 " spell check (aspell)
 "map ,ss :w!<CR>:!aspell check --lang=es -e %<CR>:e! %<CR>
 "map ,se :w!<CR>:!aspell check --lang=en -e %<CR>:e! %<CR>

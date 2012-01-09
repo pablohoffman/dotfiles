@@ -81,6 +81,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "f", function () awful.util.spawn_with_shell("redisplay") end),
+    awful.key({ modkey, "Control" }, "p", function () awful.util.spawn_with_shell("gvim -n ~/Documents/docs/file-p") end),
+    awful.key({ modkey, "Control" }, "o", function () awful.util.spawn_with_shell("gvim ~/Documents/docs/file-o") end),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
