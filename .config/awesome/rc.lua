@@ -81,8 +81,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "f", function () awful.util.spawn_with_shell("redisplay") end),
-    awful.key({ modkey, "Control" }, "p", function () awful.util.spawn_with_shell("gvim -n ~/Documents/docs/file-p") end),
-    awful.key({ modkey, "Control" }, "o", function () awful.util.spawn_with_shell("gvim ~/Documents/docs/file-o") end),
+    awful.key({ modkey, "Control" }, "p", function () awful.util.spawn_with_shell("gnome-terminal -x vim -n ~/Documents/docs/file-p") end),
+    awful.key({ modkey, "Control" }, "o", function () awful.util.spawn_with_shell("gnome-terminal -x vim ~/Documents/docs/file-o") end),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
@@ -174,6 +174,10 @@ awful.rules.rules = {
     { rule = { class = "gimp" },
       properties = { floating = true } },
     { rule = { class = "wicd-client" },
+      properties = { floating = true } },
+    { rule = { class = "Qjackctl" },
+      properties = { floating = true } },
+    { rule = { class = "Gtk-recordMyDesktop" },
       properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
