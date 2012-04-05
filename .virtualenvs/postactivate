@@ -1,11 +1,15 @@
 #!/bin/bash
 # This hook is run after every virtualenv is activated.
 
+project=$(basename "$VIRTUAL_ENV")
+
 _OLD_VIRTUAL_PS1="$PS1"
-PS1="\[\033[01;33m\][`basename \"$VIRTUAL_ENV\"`] $PS1"
+PS1="\[\033[01;33m\][$project] $PS1"
 
 _OLD_VIRTUAL_PYTHONPATH="$PYTHONPATH"
 export PYTHONPATH="$HOME/.virtualenv-libs:$PYTHONPATH"
 
 _OLD_VIRTUAL_PATH="$PATH"
 export PATH="~/src/scrapy/bin:$_OLD_VIRTUAL_PATH"
+
+cd $HOME/src/$project 2>/dev/null
