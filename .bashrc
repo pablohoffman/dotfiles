@@ -80,7 +80,6 @@ export PATH=$PATH:/usr/sbin:~/bin
 
 #export GPGKEY=24C071FE
 
-export WORKON_HOME=~/envs
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # Add some paths if they exist
