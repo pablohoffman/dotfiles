@@ -25,7 +25,6 @@ alias goerl14=". /opt/erlang/r14b04/activate"
 # to support running ipython/nosetests/trial/twistd on virtualenv
 alias ipython="python /usr/bin/ipython"
 alias ipy="python /usr/bin/ipython"
-alias nosetests="python /usr/bin/nosetests"
 alias trial="python /usr/bin/trial"
 alias twistd="python /usr/bin/twistd"
 alias pylint="python /usr/bin/pylint"
