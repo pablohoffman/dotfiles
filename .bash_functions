@@ -73,7 +73,7 @@ go() { # go to hg project
     cd $d
 }
 [ -d $projects_dir ] && {
-    complete -W "$(ls -l $projects_dir | grep ^d | awk '{print $8}')" go
+    complete -W "$(find ~/src -maxdepth 1 -type d -printf '%f\n')" go
 }
 
 env-h() {
