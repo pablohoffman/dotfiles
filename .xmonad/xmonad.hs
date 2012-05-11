@@ -51,7 +51,7 @@ main = do
 myModMask            = mod4Mask
 myTerminal           = "gnome-terminal"
 myNormalBorderColor  = "#000000"
-myFocusedBorderColor = "#000000"
+myFocusedBorderColor = "#888888"
 myBorderWidth        = 1
 
 myLayouts = gaps [(U, 24)] $ desktopLayoutModifiers $ smartBorders 
