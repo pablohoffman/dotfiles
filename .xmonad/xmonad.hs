@@ -1,6 +1,7 @@
 import XMonad
 import System.IO
 import System.Exit
+import Control.Monad (liftM2)
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -12,6 +13,7 @@ import XMonad.Config.Desktop (desktopLayoutModifiers)
 
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.EwmhDesktops
 
 import XMonad.Layout.Gaps
 import XMonad.Layout.IM
@@ -45,6 +47,8 @@ main = do
     , normalBorderColor  = myNormalBorderColor
     , focusedBorderColor = myFocusedBorderColor
     , borderWidth        = myBorderWidth
+
+    , handleEventHook    = fullscreenEventHook
  }
 
 
@@ -55,11 +59,10 @@ myFocusedBorderColor = "#888888"
 myBorderWidth        = 1
 
 myLayouts = gaps [(U, 24)] $ desktopLayoutModifiers $ smartBorders 
-    $ (stabbed ||| tiled ||| mirror ||| fullscreen)
+    $ (stabbed ||| tiled ||| mirror)
     where 
         tiled = Tall 1 0.03 0.5
         mirror = Mirror tiled
-        fullscreen = layoutHintsToCenter ( Full )
         stabbed = simpleTabbed
 
 
@@ -75,8 +78,15 @@ myManageHook = composeAll
   , className  =? "gloobus-preview"    --> doCenterFloat
   , className  =? "Gloobus-preview"    --> doCenterFloat
   , className  =? "Do"                 --> doIgnore
-  , className  =? "mplayer2"           --> doFullFloat
+  , className  =? "Smplayer"           --> doCenterFloat
+  , className  =? "Thunderbird"        --> viewShift "2:mail"
+  , className  =? "Google-chrome"      --> viewShift "3:web"
+  , className  =? "Firefox"            --> viewShift "3:web"
+  , className  =? "Pidgin"             --> viewShift "9:chat"
+  , className  =? "Rhythmbox"          --> viewShift "5:music"
+  , className  =? "Totem"              --> viewShift "4:video"
   ] 
+  where viewShift = doF . liftM2 (.) W.greedyView W.shift
 
 scratchpads = [ 
     NS "ipython" "gnome-terminal -e ipython --title='sc-python'"          (title =? "sc-python") (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
@@ -86,7 +96,7 @@ scratchpads = [
     ] where role = stringProperty "WM_WINDOW_ROLE"
 
 
-myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+myWorkspaces = ["1:dev", "2:mail", "3:web", "4:video", "5:music", "6", "7", "8:servers", "9:chat", "0"]
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
@@ -94,7 +104,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
  
     -- launcher
-    , ((modm,               xK_r     ), spawn "synapse")
+    --, ((modm,               xK_r     ), spawn "synapse")
 
     , ((modm,               xK_backslash), runOrRaisePrompt defaultXPConfig)
 
