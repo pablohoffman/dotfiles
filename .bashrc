@@ -52,7 +52,7 @@ if [ "$TERM" != "dumb" ]; then
 fi
 
 export EDITOR=vim
-export PAGER=less
+export PAGER="less -R"
 export TSOCKS_CONF_FILE=~/.tsocksrc
 
 [ -x /usr/bin/ack-grep ] && {
