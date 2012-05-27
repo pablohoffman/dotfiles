@@ -12,11 +12,20 @@ MODULES = [
     'boto',
     'requests',
     'pygments',
+    'lxml',
+    'numpy',
     'PIL',
+    'PyQt4',
+    'sip',
     'jinja2',
 
     'pylint',
     'logilab',
+
+    'IPython',
+    'pexpect',
+    'decorator',
+    'simplegeneric',
 
     ('scrapy', '~/src/scrapy/scrapy'),
     ('w3lib', '~/src/w3lib/w3lib'),
@@ -31,7 +40,11 @@ def get_module_path(name):
     try:
         return name, m.__path__[0]
     except AttributeError:
-        return name + '.py', m.__file__.replace('.pyc', '.py')
+        path = m.__file__
+        if path.endswith('.so'):
+            return name + '.so', path
+        else:
+            return name + '.py', path.replace('.pyc', '.py')
 
 def main():
     for d in glob.glob('%s/*/lib/python*/site-packages' % VIRTUALENV_DIR):
