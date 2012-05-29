@@ -31,9 +31,6 @@ status.deleted = cyan bold
 status.unknown = black bold
 status.ignored = blue bold
 
-[hooks]
-#precommit.pylint = cd $(hg root); pylint $(hg st -nma | grep .py); exit 0
-
 [diff]
 git=1
 
@@ -44,6 +41,5 @@ method = /usr/sbin/sendmail
 paste = paste --dest dpaste.org -u pablo
 ipaste = paste --dest lodgeit --url "https://paste.scrapinghub.com" --usenetrc
 ipastepy = ipaste --stdin --syntax python
-mpaste = paste --dest pastebin.dixo.net --url "https://dev.mydeco.com/pastebin/" --usenetrc -u pablo
 qpaste = paste -r qtip -u pablo
 qipaste = ipaste -r qtip

@@ -18,6 +18,7 @@ MODULES = [
     'PyQt4',
     'sip',
     'jinja2',
+    'docutils',
 
     'pylint',
     'logilab',
