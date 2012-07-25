@@ -89,10 +89,9 @@ myManageHook = composeAll
   where viewShift = doF . liftM2 (.) W.greedyView W.shift
 
 scratchpads = [ 
-    NS "ipython" "gnome-terminal -e ipython --title='sc-python'"          (title =? "sc-python") (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
-  , NS "htop" "gnome-terminal -e htop --title='sc-htop'"                  (title =? "sc-htop")   (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
-  , NS "dash" "gnome-terminal --role dash -x vim ~/Documents/docs/file-o" (role  =? "dash")      (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
-  , NS "pass" "gnome-terminal --role pass -x vim ~/Documents/docs/file-p" (role  =? "pass")      (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
+    NS "term" "gnome-terminal --role term"                                (role =? "term") (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
+  , NS "dash" "gnome-terminal --role dash -x vim ~/Documents/docs/file-o" (role =? "dash") (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
+  , NS "pass" "gnome-terminal --role pass -x vim ~/Documents/docs/file-p" (role =? "pass") (customFloating $ W.RationalRect (1/6) (1/6) (2/3) (2/3))
     ] where role = stringProperty "WM_WINDOW_ROLE"
 
 
@@ -176,7 +175,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Scratchpads
 
-    , ((modm              , xK_i     ), namedScratchpadAction scratchpads "ipython")
+    , ((modm              , xK_i     ), namedScratchpadAction scratchpads "term")
     , ((modm              , xK_o     ), namedScratchpadAction scratchpads "dash")
     , ((modm              , xK_p     ), namedScratchpadAction scratchpads "pass")
 

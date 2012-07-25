@@ -68,7 +68,7 @@ projects_dir=~/src
 go() { # go to hg project
     sc
     d=$projects_dir/$1
-    export PYTHONPATH=$PYTHONPATH:~/src/sophialib:~/src/scrapylib:~/src/python-scrapinghub:$d
+    export PYTHONPATH=$PYTHONPATH:~/src/sophialib:~/src/scrapylib:~/src/python-scrapinghub:~/src/hubops:$d
     export PATH=$ORIGPATH:~/src/sophialib/bin:~/src/scrapy/bin
     cd $d
 }
