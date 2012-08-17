@@ -20,3 +20,4 @@ scrapyd-data
 
 syntax:regexp
 ^autoscraping/data
+^python-hubstorage

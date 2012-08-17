@@ -67,7 +67,7 @@ fi
 export BLOCKSIZE=K
 export CLICOLOR=1
 
-export PATH=$PATH:/usr/sbin:~/bin
+export PATH=$PATH:/usr/sbin:~/bin:~/.local/bin
 
 # Mac OSX
 [ -d /opt/local/bin ] && export PATH=$PATH:/opt/local/bin
