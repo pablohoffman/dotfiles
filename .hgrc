@@ -17,6 +17,7 @@ hgext.color =
 hgext.hgk =
 hgext.fetch =
 hgext.purge =
+hgext.pager =
 #hgext.patchbomb =
 paste = ~/.hgext/paste.py
 
@@ -36,6 +37,9 @@ git=1
 
 [email]
 method = /usr/sbin/sendmail
+
+[pager]
+pager = less -FXRS
 
 [alias]
 paste = paste --dest dpaste.org -u pablo

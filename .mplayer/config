@@ -11,4 +11,6 @@ subfont-text-scale=3
 
 monitoraspect=16:9
 
+subcp=utf8
+
 #xineramascreen=0
