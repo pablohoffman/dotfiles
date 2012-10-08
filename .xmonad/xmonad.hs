@@ -192,7 +192,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-{[,]}, Switch to physical screens 1, 2
     -- mod-shift-{[,]}, Move client to screen 1, 2
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_bracketright, xK_bracketleft] [0..]
+        | (key, sc) <- zip [xK_bracketleft, xK_bracketright] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
  
 
