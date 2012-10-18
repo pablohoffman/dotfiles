@@ -76,15 +76,6 @@ go() { # go to hg project
     complete -W "$(find ~/src -maxdepth 1 -type d -printf '%f\n')" go
 }
 
-env-h() {
-    [ -f ~/aws/shub ] && . ~/aws/shub
-    sc
-    d=~/src/scrapinghub
-    export PATH=$PATH:$d/bin
-    export PYTHONPATH=$d:~/src/sophialib:$PYTHONPATH
-    cd $d
-}
-
 env-decobot() {
     sc
     d=~/src/mydeco
