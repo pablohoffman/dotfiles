@@ -85,6 +85,8 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # Add some paths if they exist
 [ -d ~/.gem/ruby/1.8/bin ] && export PATH=$PATH:~/.gem/ruby/1.8/bin
 
+[ -d /usr/local/heroku/bin ] && export PATH="$PATH:/usr/local/heroku/bin"
+
 # Amazon EC2
 if [ -d /opt/ec2 ]; then
     export EC2_HOME=/opt/ec2
@@ -115,6 +117,3 @@ fi
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
