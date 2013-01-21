@@ -177,7 +177,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     , ((modm              , xK_i     ), namedScratchpadAction scratchpads "term")
     , ((modm              , xK_o     ), namedScratchpadAction scratchpads "dash")
-    , ((modm              , xK_p     ), namedScratchpadAction scratchpads "pass")
+    , ((modm              , xK_u     ), namedScratchpadAction scratchpads "pass")
 
     ]
     ++
