@@ -54,7 +54,7 @@ ORIGPATH=$PATH
 ORIGPYTHONPATH=$PYTHONPATH
 
 sc() {
-    export PYTHONPATH=~/src/scrapy:~/src/w3lib:~/src/scrapely:~/src/slybot:~/src/loginform
+    export PYTHONPATH=~/src/scrapy:~/src/w3lib:~/src/scrapely:~/src/slybot:~/src/loginform:~/src/queuelib
     export PATH=$ORIGPATH:~/src/scrapy/bin
     [ -f ~/src/scrapy/extras/scrapy_bash_completion ] && . ~/src/scrapy/extras/scrapy_bash_completion
     [ -d ~/src/scrapy/scrapy ] && cd ~/src/scrapy/scrapy
