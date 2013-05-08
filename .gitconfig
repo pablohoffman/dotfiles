@@ -8,3 +8,5 @@
 	ui = auto
 [core]
 	excludesfile = ~/.gitignore
+[push]
+        default = current
