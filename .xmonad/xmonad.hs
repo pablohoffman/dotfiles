@@ -75,6 +75,7 @@ myManageHook = composeAll
   , resource   =? "synapse"            --> doIgnore
   , title      =? "kupfer"             --> doCenterFloat
   , title      =? "Deskbar Applet"     --> doCenterFloat
+  , title      =? "Eclipse"            --> doFloat
   , className  =? "gloobus-preview"    --> doCenterFloat
   , className  =? "Gloobus-preview"    --> doCenterFloat
   , className  =? "Do"                 --> doIgnore
