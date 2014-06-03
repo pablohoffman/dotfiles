@@ -60,38 +60,25 @@ sc() {
     [ -d ~/src/scrapy/scrapy ] && cd ~/src/scrapy/scrapy
 }
 
-projects_dir=~/src
-go() { # go to hg project
+repodir=~/src
+go() {
     sc
-    d=$projects_dir/$1
+    d=$repodir/$1
     export PYTHONPATH=$PYTHONPATH:~/src/sophialib:~/src/scrapylib:~/src/python-scrapinghub:~/src/hubops:$d
     export PATH=$ORIGPATH:~/src/sophialib/bin:~/src/scrapy/bin
     cd $d
 }
-[ -d $projects_dir ] && {
+[ -d $repodir ] && {
     complete -W "$(find ~/src -maxdepth 1 -type d -printf '%f\n')" go
 }
 
-env-decobot() {
-    sc
-    d=~/src/mydeco
-    export PATH=$ORIGPATH:~/src/scrapy/bin
-    export PYTHONPATH=$PYTHONPATH:$d/scraping:$d/toolbox
-    cd $d/scraping
-    . ~/aws/dev
-}
-
-env-asbot() {
-    sc
-    d=~/src/mydeco
-    export PYTHONPATH=$PYTHONPATH:$d/toolbox:$d/autoscraping:~/src/mydeco/scraping
-    export DJANGO_SETTINGS_MODULE=autoscraping.ui.settings
-    cd $d/autoscraping/autoscraping
-    . ~/aws/dev
-}
-
-uprcfiles() {
-    cd
-    hg pull -u rcfiles
-    reload
+# dotfiles git wrapper
+alias dotgit="GIT_DIR=~/.dotfiles.git GIT_WORK_TREE=~ git"
+alias dottig="GIT_DIR=~/.dotfiles.git GIT_WORK_TREE=~ tig"
+complete -o bashdefault -o default -o nospace -F _git dotfiles
+dotsync (){
+    (
+        cd ~
+        dotfiles pull origin master -u
+    )
 }
