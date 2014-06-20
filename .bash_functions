@@ -43,11 +43,11 @@ scr() {
 # ---- Work Environments ----
 
 repodir=~/src
-g() {
+p() {
     cd $repodir/$1
 }
 [ -d $repodir ] && {
-    complete -W "$(find ~/src -maxdepth 1 -type d -printf '%f\n')" g
+    complete -W "$(find ~/src -maxdepth 1 -type d -printf '%f\n')" p
 }
 
 # dotfiles git wrapper
