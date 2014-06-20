@@ -1,36 +1,20 @@
 #!/bin/sh
 
-alias mq='hg -R $(hg root)/.hg/patches' 
-alias fs='hadoop fs'
-alias m='mutt'
-alias sup='sup-mail'
 alias ack='ack-grep'
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias grep='grep --color'
 alias less='less -n'
-alias hgp="hg pull -u"
-alias hgcl="find -name '*.orig' -delete"
 alias rmpyc="find -name '*.pyc' -delete -or -name '*\$py.class' -delete"
 alias rmrej="find -name '*.rej' -delete"
 alias rmorig="find -name '*.orig' -delete"
 alias rmall="rmpyc; rmrej; rmorig"
 alias vj="python -m json.tool"
 alias vjl="python -m json.tool | less"
-alias lock="gnome-screensaver-command --lock"
 alias upapt="sudo apt-get -qq update && sudo apt-get install"
 alias goerl14=". /opt/erlang/r14b04/activate"
-
-# to support running ipython/nosetests/trial/twistd on virtualenv
-alias ipython="python /usr/bin/ipython"
-alias ipy="python /usr/bin/ipython"
-alias bpython="python -m bpython.cli"
-alias bp="python -m bpython.cli"
-alias trial="python /usr/bin/trial"
-alias twistd="python /usr/bin/twistd"
-alias pylint="python /usr/bin/pylint"
-alias fab="python /usr/local/bin/fab"
+alias ipy="ipython"
 alias py="python"
 
 [ -f /usr/bin/vim -o -f /usr/local/bin/vim ] && alias vi='vim'

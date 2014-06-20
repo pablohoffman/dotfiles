@@ -90,8 +90,3 @@ if exists("+showtabline")
     source ~/.vim/tabline.vim
 endif
 " }}}
-
-if exists("$HAVEACK")
-    set grepprg=ack-grep\ -a\ $*
-endif
-

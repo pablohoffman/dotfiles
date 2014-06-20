@@ -3,14 +3,6 @@ reload() {
     . ~/.bashrc
 }
 
-kssh() {
-    host=$1
-    shift
-    (telnet $host 20301 >/dev/null 2>&1) &
-    ssh $host "$@"
-}
-complete -F _ssh kssh
-
 _fab() {
     local cmd commands
     cmd=${COMP_WORDS[1]}
@@ -50,32 +42,21 @@ scr() {
 
 # ---- Work Environments ----
 
-ORIGPATH=$PATH
-ORIGPYTHONPATH=$PYTHONPATH
-
-sc() {
-    export PYTHONPATH=~/src/scrapy:~/src/w3lib:~/src/scrapely:~/src/slybot:~/src/loginform:~/src/queuelib
-    export PATH=$ORIGPATH:~/src/scrapy/bin
-    [ -f ~/src/scrapy/extras/scrapy_bash_completion ] && . ~/src/scrapy/extras/scrapy_bash_completion
-    [ -d ~/src/scrapy/scrapy ] && cd ~/src/scrapy/scrapy
-}
-
 repodir=~/src
-go() {
-    sc
-    d=$repodir/$1
-    export PYTHONPATH=$PYTHONPATH:~/src/sophialib:~/src/scrapylib:~/src/python-scrapinghub:~/src/hubops:$d
-    export PATH=$ORIGPATH:~/src/sophialib/bin:~/src/scrapy/bin
-    cd $d
+g() {
+    cd $repodir/$1
 }
 [ -d $repodir ] && {
-    complete -W "$(find ~/src -maxdepth 1 -type d -printf '%f\n')" go
+    complete -W "$(find ~/src -maxdepth 1 -type d -printf '%f\n')" g
 }
 
 # dotfiles git wrapper
 alias dotgit="GIT_DIR=~/.dotfiles.git GIT_WORK_TREE=~ git"
 alias dottig="GIT_DIR=~/.dotfiles.git GIT_WORK_TREE=~ tig"
-complete -o bashdefault -o default -o nospace -F _git dotfiles
+if [ -f /usr/share/bash-completion/completions/git ]; then
+    . /usr/share/bash-completion/completions/git
+fi
+complete -o bashdefault -o default -o nospace -F _git dotgit
 dotsync (){
     (
         cd ~

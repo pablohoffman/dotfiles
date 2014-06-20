@@ -55,46 +55,15 @@ export EDITOR=vim
 export PAGER="less -R"
 export TSOCKS_CONF_FILE=~/.tsocksrc
 
-[ -x /usr/bin/ack-grep ] && {
-    export HAVEACK=1 # used in .vimrc
-}
-
 if [ ! "$LANG" ]; then
     export LANG=en_US.UTF-8
 fi
 
-# FreeBSD
-export BLOCKSIZE=K
-export CLICOLOR=1
-
 export PATH=$PATH:/usr/sbin:~/bin:~/.local/bin
-
-# Mac OSX
-[ -d /opt/local/bin ] && export PATH=$PATH:/opt/local/bin
-[ -r /sw/bin/init.sh ] && . /sw/bin/init.sh
-
-# per host configuration
-[ "$HOSTNAME" = "130336-spider1.prod.mydeco.com" ] && {
-    export PATH=$PATH:/opt/scraping/bin
-}
 
 #export GPGKEY=24C071FE
 
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-
-# Add some paths if they exist
-[ -d ~/.gem/ruby/1.8/bin ] && export PATH=$PATH:~/.gem/ruby/1.8/bin
-
-[ -d /usr/local/heroku/bin ] && export PATH="$PATH:/usr/local/heroku/bin"
-
-# Amazon EC2
-if [ -d /opt/ec2 ]; then
-    export EC2_HOME=/opt/ec2
-    export EC2_PRIVATE_KEY=~/.ec2/pk-FQ7QZ5VZA4PDMNPMFRPBCF7BQMECGPYW.pem
-    export EC2_CERT=~/.ec2/cert-FQ7QZ5VZA4PDMNPMFRPBCF7BQMECGPYW.pem
-    export PATH=$PATH:/opt/ec2/bin
-    export JAVA_HOME=/usr/lib/jvm/java-6-sun-1.6.0.06/jre/
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -108,15 +77,7 @@ if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
-# Custom host configuration
-if [ -f ~/.bash_hosts ]; then
-    . ~/.bash_hosts
-fi
-
 # Finally overriding by local configuration
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
-
-### Added by the Heroku Toolbelt
-#export PATH="/usr/local/heroku/bin:$PATH"
