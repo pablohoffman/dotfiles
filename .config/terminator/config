@@ -1,0 +1,22 @@
+[global_config]
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  window_state = maximise
+  focus = system
+  inactive_color_offset = 0.82
+[keybindings]
+  cycle_prev = <Super>k
+  cycle_next = <Super>j
+[profiles]
+  [[default]]
+    use_system_font = False
+    font = Ubuntu Mono 14
+    background_image = None
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
