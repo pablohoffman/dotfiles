@@ -47,7 +47,7 @@ p() {
     cd $repodir/$1
 }
 [ -d $repodir ] && {
-    complete -W "$(find ~/src -maxdepth 1 -type d -printf '%f\n')" p
+    complete -W "$(find ~/src -maxdepth 1 -mindepth 1 -type d -printf '%f\n')" p
 }
 
 # dotfiles git wrapper
