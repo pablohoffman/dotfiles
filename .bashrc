@@ -59,7 +59,7 @@ if [ ! "$LANG" ]; then
     export LANG=en_US.UTF-8
 fi
 
-export PATH=$PATH:/usr/sbin:~/bin:~/.local/bin
+export PATH=$PATH:/usr/sbin:~/bin:~/.local/bin:~/.gem/ruby/1.9.1/bin
 
 #export GPGKEY=24C071FE
 
