@@ -63,7 +63,7 @@ export PATH=$PATH:/usr/sbin:~/bin:~/.local/bin:~/.gem/ruby/1.9.1/bin
 
 #export GPGKEY=24C071FE
 
-export VIRTUAL_ENV_DISABLE_PROMPT=1
+#export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
