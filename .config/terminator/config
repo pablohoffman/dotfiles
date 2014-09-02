@@ -3,6 +3,7 @@
   window_state = maximise
   focus = system
   inactive_color_offset = 0.82
+  suppress_multiple_term_dialog = True
 [keybindings]
   cycle_prev = <Super>k
   cycle_next = <Super>j
