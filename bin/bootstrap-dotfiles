@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e -x
+export GIT_WORK_TREE=${1:-~}
+export GIT_DIR=~/.dotfiles.git
+git clone --bare https://github.com/pablohoffman/dotfiles $GIT_DIR
+git config --add remote.origin.pushurl git@github.com:pablohoffman/dotfiles
+echo '*' >>$GIT_DIR/info/exclude
+echo $GIT_DIR
+git reset --hard
