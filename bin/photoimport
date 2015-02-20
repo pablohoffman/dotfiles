@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+import glob
+from os.path import join, expanduser, basename, dirname
+import commands, os, shutil
+
+PHOTOS_DIR = expanduser("~/Dropbox/Photos")
+
+def iterphotos():
+    return glob.glob("/media/*/*/DCIM/[0-9][0-9][0-9]*/*")
+    
+def get_create_date(filename):
+    st, out = commands.getstatusoutput("exiftool '%s' -CreateDate" % filename)
+    assert st == 0, "unable to process: %s" % filename
+    return out[34:][:10].split(":")
+
+def md5(filename):
+    return commands.getoutput("md5sum '%s' | cut -c 1-32" % filename)
+
+def main():
+    for src in iterphotos():
+        date = get_create_date(src)
+        dst = join(PHOTOS_DIR, date[0], date[1], basename(src))
+        if os.path.exists(dst):
+            assert md5(src) == md5(dst), "md5 differs: %s %s" % (src, dst)
+            print "%s -> already imported!" % src
+            continue
+        else:
+            if not os.path.exists(dirname(dst)):
+                os.makedirs(dirname(dst))
+        print "%s -> %s" % (src, dst)
+        shutil.copy2(src, dst)
+
+if __name__ == "__main__":
+    main()
