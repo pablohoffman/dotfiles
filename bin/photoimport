@@ -1,15 +1,18 @@
 #!/usr/bin/env python
-import glob
+import sys, glob
 from os.path import join, expanduser, basename, dirname
 import commands, os, shutil
 
 PHOTOS_DIR = expanduser("~/Dropbox/Photos")
 
-def iterphotos():
-    return glob.glob("/media/*/*/DCIM/[0-9][0-9][0-9]*/*")
-    
+def iterphotos(pathnames):
+    for p in pathnames:
+        for x in glob.glob(p):
+            yield x
+
 def get_create_date(filename):
-    st, out = commands.getstatusoutput("exiftool '%s' -CreateDate" % filename)
+    cmd = "exiftool '%s' -CreateDate" % filename
+    st, out = commands.getstatusoutput(cmd)
     assert st == 0, "unable to process: %s" % filename
     return out[34:][:10].split(":")
 
@@ -17,9 +20,14 @@ def md5(filename):
     return commands.getoutput("md5sum '%s' | cut -c 1-32" % filename)
 
 def main():
-    for src in iterphotos():
+    if len(sys.argv) > 1:
+        pathnames = sys.argv[1:]
+    else:
+        pathnames = ["/media/*/*/DCIM/[0-9][0-9][0-9]*/*"] # camera photos
+
+    for src in iterphotos(pathnames):
         date = get_create_date(src)
-        dst = join(PHOTOS_DIR, date[0], date[1], basename(src))
+        dst = join(PHOTOS_DIR, "%s-%s" % (date[0], date[1]), basename(src))
         if os.path.exists(dst):
             assert md5(src) == md5(dst), "md5 differs: %s %s" % (src, dst)
             print "%s -> already imported!" % src
