@@ -5,6 +5,9 @@ import commands, os, shutil
 
 PHOTOS_DIR = expanduser("~/Dropbox/Photos")
 
+class NoExif(Exception):
+    pass
+
 def iterphotos(pathnames):
     for p in pathnames:
         for x in glob.glob(p):
@@ -13,7 +16,8 @@ def iterphotos(pathnames):
 def get_create_date(filename):
     cmd = "exiftool '%s' -CreateDate" % filename
     st, out = commands.getstatusoutput(cmd)
-    assert st == 0, "unable to process: %s" % filename
+    if st != 0 or not out.strip():
+        raise NoExif()
     return out[34:][:10].split(":")
 
 def md5(filename):
@@ -26,12 +30,19 @@ def main():
         pathnames = ["/media/*/*/DCIM/[0-9][0-9][0-9]*/*"] # camera photos
 
     for src in iterphotos(pathnames):
-        date = get_create_date(src)
-        dst = join(PHOTOS_DIR, "%s-%s" % (date[0], date[1]), basename(src))
+        try:
+            date = get_create_date(src)
+            dst = join(PHOTOS_DIR, "%s-%s" % (date[0], date[1]), basename(src))
+        except NoExif:
+            dst = join(".noexif", basename(src))
         if os.path.exists(dst):
-            assert md5(src) == md5(dst), "md5 differs: %s %s" % (src, dst)
-            print "%s -> already imported!" % src
-            continue
+            if md5(src) == md5(dst):
+                print "%s -> already imported!" % src
+                continue
+            else:
+                print "md5 differs: %s %s" % (src, dst)
+                if raw_input("  overwrite? [y/N]: ").lower() != "y":
+                    continue
         else:
             if not os.path.exists(dirname(dst)):
                 os.makedirs(dirname(dst))
