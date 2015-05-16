@@ -1,5 +1,3 @@
-set nocompatible       " vi--
-
 set smarttab           " tabulacion, indentacion, etc
 set shiftwidth=4
 set expandtab
@@ -20,7 +18,6 @@ set showcmd            " que muestre en la barra de estado el progreso de los co
 set pastetoggle=<F11>  " para habilitar y deshabilitar rapido el modo paste 
 set hidden             " para poder switchear buffers sin grabar
 set ruler              " mostrar linea y columna en la barra de estado
-set background=light   " para conservar la vista hasta los 80
 set wildmenu           " mostrar menu scrollable al buscar archivos
 set wildmode=list:longest,full  " que al primer TAB muestre lista completa y con el segundo recorrar los files
 
@@ -36,25 +33,11 @@ function! CleverTab()
 		return "\<C-N>"
 	endfunction
 inoremap <TAB> <C-R>=CleverTab()<CR>
-set backspace=indent,eol,start
 
-au Bufenter *.json set filetype=javascript
-au Bufenter master.cfg set filetype=python " buildbot
-au BufRead *-sup.* set ft=mail
-
-augroup filetypedetect 
-  au BufNewFile,BufRead *.pig set filetype=pig syntax=pig 
-augroup END 
-
-augroup filetype
-    au! BufRead,BufNewFile *.proto setfiletype proto
-augroup end
+au bufenter file-p set noswapfile
 
 " custom key bindings
-
 set backspace=indent,eol,start
-" para hacer word wrap de parrafos al escribir mails
-noremap Q gq}
 map ,w :w<CR>
 map ,q :qa<CR>
 map ,x :wq<CR>
@@ -64,9 +47,6 @@ map ,p :bp<CR>
 map ,, :noh<CR>
 map ,e :tabedit 
 map ,y :!python /usr/bin/pylint %<CR>
-map ,au :!hg annotate -u % \| less<CR>
-" Mercurial diff
-map ,md :!hg cat % \| vim -R - -c ":vert diffsplit %"<CR>
 
 " spell check (inline)
 nmap ,se :set spell spelllang=en<CR>
@@ -75,12 +55,6 @@ nmap ,ss :set spell spelllang=<CR>
 
 " paste X clipboard
 nmap ,v "+gP
-
-" spell check (aspell)
-"map ,ss :w!<CR>:!aspell check --lang=es -e %<CR>:e! %<CR>
-"map ,se :w!<CR>:!aspell check --lang=en -e %<CR>:e! %<CR>
-
-"set tabline=%!MyTabLine()
 
 " Tabs {{{
 " This is an attempt to emulate the default Vim-7 tabs as closely as possible but with numbered tabs.
