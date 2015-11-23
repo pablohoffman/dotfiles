@@ -45,6 +45,7 @@ fi
 
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
+    export CLICOLOR=1 # mac osx
     if [ -e /usr/bin/dircolors -a -f ~/.dircolors ]; then
         eval "`dircolors -b ~/.dircolors`"
         alias ls='ls --color=auto'
